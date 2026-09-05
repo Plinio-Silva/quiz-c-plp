@@ -1,0 +1,11 @@
+build/*
+*.exe
+*.o
+*.obj
+
+# Arquivos gerados por editores e pelo sistema operacional
+.vscode/
+.idea/
+*.swp
+Thumbs.db
+Desktop.ini
