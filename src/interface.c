@@ -1,6 +1,6 @@
 /*
  * interface.c
- * Alunos: Plinio Tiago da Silva
+ * Aluno: Plinio Tiago da Silva
  * Disciplina: Paradigmas de Linguagens de Programacao (PLP)
  * Professor: Sergio Roberto Costa Vieira
  *
@@ -9,15 +9,11 @@
  */
 #include <stdio.h>
 #include <string.h>
+#include <conio.h>
 #include <windows.h>
 #include "../include/interface.h"
 
-/* Move o cursor do console para a coluna/linha informadas */
-void gotoxy(int coluna, int linha) {
-    COORD posicao = { (SHORT)coluna, (SHORT)linha };
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), posicao);
-}
-
+/* Limpa a tela para que cada etapa do quiz tenha uma apresentacao propria. */
 void limparTela(void) {
     system("cls");
 }
@@ -41,7 +37,8 @@ void centralizarTexto(const char *texto, int linha) {
     if (coluna < 0) {
         coluna = 0;
     }
-    gotoxy(coluna, linha);
+    /* A conio usa coordenadas iniciadas em 1, por isso somamos 1 a coluna. */
+    gotoxy(coluna + 1, linha + 1);
     printf("%s", texto);
 }
 
@@ -57,7 +54,7 @@ void exibirTelaLoading(void) {
     definirCor(COR_AMARELO, COR_PRETO);
 
     for (i = 0; i <= 20; i++) {
-        gotoxy(colunaBarra, 12);
+        gotoxy(colunaBarra + 1, 13);
         printf("Carregando [");
         for (j = 0; j < 20; j++) {
             putchar(j < i ? '#' : ' ');

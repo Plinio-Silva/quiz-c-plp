@@ -18,7 +18,6 @@
 #define COR_CINZA           8
 #define COR_BRANCO_INTENSO  15
 
-void gotoxy(int coluna, int linha);
 void limparTela(void);
 void definirCor(int corTexto, int corFundo);
 int obterLarguraConsole(void);

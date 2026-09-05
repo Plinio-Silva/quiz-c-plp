@@ -1,6 +1,6 @@
 /*
  * tema2.c
- * Alunos: Plinio Tiago da Silva / (adicionar nome do colega, se houver)
+ * Aluno: Plinio Tiago da Silva
  * Disciplina: Paradigmas de Linguagens de Programacao (PLP)
  * Professor: Sergio Roberto Costa Vieira
  *

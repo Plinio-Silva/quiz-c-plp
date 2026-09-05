@@ -1,6 +1,6 @@
 /*
  * temporizador.c
- * Alunos: Plinio Tiago da Silva / (adicionar nome do colega, se houver)
+ * Aluno: Plinio Tiago da Silva
  * Disciplina: Paradigmas de Linguagens de Programacao (PLP)
  * Professor: Sergio Roberto Costa Vieira
  *
@@ -22,7 +22,8 @@ int aguardarResposta(int segundos, char *resposta) {
         DWORD marcaSegundo = GetTickCount();
 
         definirCor(COR_CIANO, COR_PRETO);
-        gotoxy(2, 19);
+        /* A biblioteca conio usa coordenadas de tela iniciadas em 1. */
+        gotoxy(3, 20);
         printf("Tempo restante: %2d s   ", tempoRestante);
         definirCor(COR_BRANCO, COR_PRETO);
 

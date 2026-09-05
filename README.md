@@ -86,22 +86,22 @@ O projeto está organizado em múltiplos arquivos para garantir modularidade e c
 ## ▶️ Como Compilar
 
 ```bash
-gcc src/*.c -o build/quiz.exe
-
-Ou, usando Makefile:
-
-bash
 make
+```
+
+O Makefile utiliza os arquivos `conio.c`, `conio.h` e `libconio.a` fornecidos
+pelo professor na pasta `D:/Projetos/conio`.
 
 ---
 
 ## ▶️ Como Executar
-bash
+
+```bash
 ./build/quiz.exe
+```
 
 ## 👥 Autores
-Plinio
-(Adicione o nome do colega)
+Plinio Tiago da Silva
 
 
 ## 📌 Status do Projeto
