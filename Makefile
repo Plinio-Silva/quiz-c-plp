@@ -1,7 +1,7 @@
 CC = gcc
-CFLAGS = -Wall -Iinclude -ID:/Projetos/conio
+CFLAGS = -Wall -I. -Iinclude
 SRC = src/main.c src/interface.c src/temporizador.c src/tema1.c src/tema2.c
-CONIO_SRC = D:/Projetos/conio/conio.c
+CONIO_SRC = conio.c
 OUT = build/quiz.exe
 
 all: $(OUT)
