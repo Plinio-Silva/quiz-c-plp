@@ -9,9 +9,7 @@
  */
 #include <stdio.h>
 #include <conio.h>
-#include "../include/interface.h"
-#include "../include/tema1.h"
-#include "../include/tema2.h"
+#include "../include/quiz.h"
 
 /* Exibe a tela final com a quantidade de acertos e erros do usuario */
 static void exibirTelaFinal(int acertos, int erros) {

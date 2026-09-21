@@ -11,7 +11,7 @@
 #include <string.h>
 #include <conio.h>
 #include <windows.h>
-#include "../include/interface.h"
+#include "../include/quiz.h"
 
 /* Limpa a tela para que cada etapa do quiz tenha uma apresentacao propria. */
 void limparTela(void) {

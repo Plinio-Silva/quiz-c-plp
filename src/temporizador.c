@@ -11,8 +11,7 @@
 #include <ctype.h>
 #include <conio.h>
 #include <windows.h>
-#include "../include/temporizador.h"
-#include "../include/interface.h"
+#include "../include/quiz.h"
 
 /* Aguarda o usuario pressionar A, B, C ou D dentro do tempo limite informado */
 int aguardarResposta(int segundos, char *resposta) {

@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Wall -I. -Iinclude
-SRC = src/main.c src/interface.c src/temporizador.c src/tema1.c src/tema2.c
+SRC = src/main.c src/interface.c src/temporizador.c src/perguntas.c
 CONIO_SRC = conio.c
 OUT = build/quiz.exe
 

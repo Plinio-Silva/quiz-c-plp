@@ -29,12 +29,13 @@ Este documento descreve o planejamento geral do desenvolvimento do projeto, incl
 - Criar tela final de resultados
 
 ### 4) Modularização
-- Separar funções em arquivos:
-  - interface.c
-  - temporizador.c
-  - tema1.c
-  - tema2.c
-  - main.c
+- Estrutura final (5 arquivos no total, exigência do professor):
+  - src/main.c        → ponto de entrada, menu e tela final
+  - src/interface.c   → cores, centralização, loading e efeito piscar
+  - src/temporizador.c → contagem regressiva de 30s por pergunta
+  - src/perguntas.c   → perguntas e execução do Tema 1 e do Tema 2 (unificados)
+  - include/quiz.h    → header único com structs, constantes e protótipos
+- conio.c / conio.h ficam fora da contagem (biblioteca exigida pelo enunciado).
 
 ### 5) Testes
 - Testar temporizador
@@ -67,7 +68,8 @@ Este documento descreve o planejamento geral do desenvolvimento do projeto, incl
 
 ## 📌 Status Atual
 
-- Estrutura criada  
-- README criado  
-- Documentação iniciada  
-- Implementação em andamento
+- Estrutura criada e reestruturada para 5 arquivos (.c + .h)
+- README criado e atualizado
+- Documentação atualizada (anotações com problemas/soluções registrados)
+- Implementação concluída: loading, temporizador, dois temas, feedback visual e tela final funcionando
+- Build validado via task própria do VS Code ("Compilar Quiz" / "Rodar Quiz") e via Makefile

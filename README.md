@@ -25,35 +25,25 @@ Criar um quiz com dois temas diferentes, cada um contendo 10 perguntas de múlti
 - Uso obrigatório da biblioteca **conio.c**.
 - Perguntas centralizadas na tela.
 - Cada pergunta deve ser uma subrotina separada.
-- Modularização em até 5 arquivos `.c`.
+- Projeto com no máximo 5 arquivos no total (`.c` + `.h`), fora da biblioteca `conio.c`/`conio.h` exigida pelo professor.
 - Linguagem C obrigatória (não aceitar `.cpp`).
 
 ---
 
 ## 🧱 Estrutura do Projeto
 
-O projeto está organizado em múltiplos arquivos para garantir modularidade e clareza no código. Abaixo está a estrutura sugerida:
+O projeto foi reestruturado para respeitar o limite de **5 arquivos no total** (`.c` + `.h`) definido pelo professor. A biblioteca `conio.c`/`conio.h`/`libconio.a`, exigida pelo próprio enunciado, fica fora dessa contagem, assim como `stdio.h`.
 
 ```quiz-c-plp/
 │
-├── src/                → arquivos .c (lógica do programa)
-│   ├── main.c
-│   ├── interface.c
-│   ├── temporizador.c
-│   ├── tema1.c
-│   ├── tema2.c
-│   └── perguntas/      → opcional, se quiser separar ainda mais
-│       ├── p1_tema1.c
-│       ├── p2_tema1.c
-│       ├── p1_tema2.c
-│       └── ...
+├── src/                → arquivos .c (lógica do programa) — 4 arquivos
+│   ├── main.c          → ponto de entrada, menu e tela final
+│   ├── interface.c     → cores, centralização, loading e efeito piscar
+│   ├── temporizador.c  → contagem regressiva de 30s por pergunta
+│   └── perguntas.c     → perguntas e execução do Tema 1 e do Tema 2
 │
-├── include/            → arquivos .h (headers)
-│   ├── interface.h
-│   ├── temporizador.h
-│   ├── tema1.h
-│   ├── tema2.h
-│   └── perguntas.h
+├── include/            → arquivo .h (header único) — 1 arquivo
+│   └── quiz.h          → structs, constantes e protótipos de todo o projeto
 │
 ├── docs/               → documentação
 │   ├── requisitos.md
@@ -67,9 +57,11 @@ O projeto está organizado em múltiplos arquivos para garantir modularidade e c
 ├── build/              → executáveis gerados (não versionar)
 │   └── quiz.exe
 │
+├── conio.c / conio.h / libconio.a  → biblioteca exigida pelo professor (fora da contagem de 5 arquivos)
+│
 ├── .gitignore
 ├── README.md
-└── Makefile            → opcional, mas profissional
+└── Makefile
 
 ---
 
@@ -89,8 +81,9 @@ O projeto está organizado em múltiplos arquivos para garantir modularidade e c
 make
 ```
 
-O Makefile utiliza os arquivos `conio.c`, `conio.h` e `libconio.a` fornecidos
-pelo professor na pasta `D:/Projetos/conio`.
+O Makefile compila `src/main.c`, `src/interface.c`, `src/temporizador.c` e
+`src/perguntas.c` junto com `conio.c` (fornecido pelo professor, já incluído
+na raiz do projeto), gerando `build/quiz.exe`.
 
 ---
 

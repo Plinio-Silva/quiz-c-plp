@@ -4,7 +4,8 @@ build/*
 *.obj
 
 # Arquivos gerados por editores e pelo sistema operacional
-.vscode/
+.vscode/*
+!.vscode/tasks.json
 .idea/
 *.swp
 Thumbs.db
