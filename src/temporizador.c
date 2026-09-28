@@ -15,9 +15,11 @@
 
 /* Aguarda o usuario pressionar A, B, C ou D dentro do tempo limite informado */
 int aguardarResposta(int segundos, char *resposta) {
+    /* Uma variavel local permite descontar o tempo sem alterar a constante recebida. */
     int tempoRestante = segundos;
 
     while (tempoRestante > 0) {
+        /* Marca o inicio deste segundo para medir um intervalo de aproximadamente 1000 ms. */
         DWORD marcaSegundo = GetTickCount();
 
         definirCor(COR_CIANO, COR_PRETO);
@@ -27,18 +29,24 @@ int aguardarResposta(int segundos, char *resposta) {
         definirCor(COR_BRANCO, COR_PRETO);
 
         while (GetTickCount() - marcaSegundo < 1000) {
+            /* kbhit verifica o teclado sem bloquear o restante da contagem. */
             if (kbhit()) {
+                /* Padroniza a entrada para aceitar tanto letras minusculas quanto maiusculas. */
                 char tecla = (char)toupper(getch());
                 if (tecla == 'A' || tecla == 'B' || tecla == 'C' || tecla == 'D') {
+                    /* A resposta e gravada no endereco recebido e 1 sinaliza sucesso. */
                     *resposta = tecla;
                     return 1;
                 }
             }
+            /* Libera brevemente o processador antes de verificar o teclado de novo. */
             Sleep(20);
         }
+        /* O segundo terminou sem resposta valida; reduz o tempo restante. */
         tempoRestante--;
     }
 
+    /* O caractere nulo indica que nenhuma alternativa foi escolhida dentro do prazo. */
     *resposta = '\0';
     return 0;
 }

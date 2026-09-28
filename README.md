@@ -77,6 +77,9 @@ O projeto foi reestruturado para respeitar o limite de **5 arquivos no total** (
 
 ## ▶️ Como Compilar
 
+Para instruções de configuração e execução no VS Code ou no Dev-C++, consulte
+o [guia Como Executar o QUIZ](docs/como-executar.md).
+
 ```bash
 make
 ```

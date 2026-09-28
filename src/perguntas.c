@@ -13,11 +13,13 @@
 #include "../include/quiz.h"
 
 typedef Pergunta (*FuncaoPergunta)(void);
+/* O ponteiro permite guardar e chamar funcoes que criam uma pergunta. */
 
 /* ======================= TEMA 1 ======================= */
 
 static Pergunta perguntaTema1_01(void) {
     Pergunta p;
+    /* strcpy copia cada texto para os campos da estrutura; a letra indica o gabarito. */
     strcpy(p.enunciado, "1) Qual e o maior planeta do Sistema Solar?");
     strcpy(p.alternativas[0], "A) Terra");
     strcpy(p.alternativas[1], "B) Marte");
@@ -134,6 +136,7 @@ static FuncaoPergunta perguntasTema1[TOTAL_PERGUNTAS] = {
 
 /* Exibe a pergunta e suas alternativas centralizadas na tela (procedimento com parametros) */
 static void exibirPerguntaTema1(Pergunta pergunta, int numero) {
+    /* O numero ja faz parte do enunciado, entao este parametro nao e utilizado. */
     (void)numero;
     limparTela();
     definirCor(COR_AMARELO, COR_PRETO);
@@ -150,15 +153,19 @@ static void exibirPerguntaTema1(Pergunta pergunta, int numero) {
 void executarTema1(int *acertos, int *erros) {
     int i;
 
+    /* Cada posicao guarda uma funcao; chama-la monta a pergunta daquela rodada. */
     for (i = 0; i < TOTAL_PERGUNTAS; i++) {
         Pergunta pergunta = perguntasTema1[i]();
         char resposta;
         int respondeuATempo;
 
         exibirPerguntaTema1(pergunta, i + 1);
+        /* O temporizador retorna se houve resposta e grava a tecla em resposta. */
         respondeuATempo = aguardarResposta(TEMPO_LIMITE_SEGUNDOS, &resposta);
 
+        /* So conta como acerto se houve resposta no prazo e a letra coincide com o gabarito. */
         if (respondeuATempo && resposta == pergunta.respostaCorreta) {
+            /* O ponteiro permite incrementar o placar mantido pela funcao principal. */
             (*acertos)++;
             piscarTela(COR_VERDE, "CORRETO!", 3);
         } else {
@@ -172,6 +179,7 @@ void executarTema1(int *acertos, int *erros) {
 
 static Pergunta perguntaTema2_01(void) {
     Pergunta p;
+    /* As funcoes deste tema seguem o mesmo formato: enunciado, opcoes e gabarito. */
     strcpy(p.enunciado, "1) Qual linguagem de programacao foi usada neste quiz?");
     strcpy(p.alternativas[0], "A) Python");
     strcpy(p.alternativas[1], "B) C");
@@ -304,6 +312,7 @@ static void exibirPerguntaTema2(Pergunta pergunta, int numero) {
 void executarTema2(int *acertos, int *erros) {
     int i;
 
+    /* Repete o mesmo fluxo do Tema 1 usando a lista de perguntas deste tema. */
     for (i = 0; i < TOTAL_PERGUNTAS; i++) {
         Pergunta pergunta = perguntasTema2[i]();
         char resposta;
@@ -312,6 +321,7 @@ void executarTema2(int *acertos, int *erros) {
         exibirPerguntaTema2(pergunta, i + 1);
         respondeuATempo = aguardarResposta(TEMPO_LIMITE_SEGUNDOS, &resposta);
 
+        /* Atualiza exatamente um dos contadores conforme o resultado da rodada. */
         if (respondeuATempo && resposta == pergunta.respostaCorreta) {
             (*acertos)++;
             piscarTela(COR_VERDE, "CORRETO!", 3);

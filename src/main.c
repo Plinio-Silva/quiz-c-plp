@@ -16,6 +16,7 @@ static void exibirTelaFinal(int acertos, int erros) {
     char linhaAcertos[50];
     char linhaErros[50];
 
+    /* Formata os numeros em textos que podem ser centralizados na tela. */
     sprintf(linhaAcertos, "Acertos: %d", acertos);
     sprintf(linhaErros, "Erros: %d", erros);
 
@@ -39,8 +40,10 @@ static int lerOpcaoTema(void) {
     char tecla;
 
     do {
+        /* Converte o caractere digitado em seu valor numerico (por exemplo, '1' em 1). */
         tecla = getch();
         opcao = tecla - '0';
+        /* Repete a leitura ate receber uma das duas opcoes validas. */
     } while (opcao != 1 && opcao != 2);
 
     return opcao;
@@ -52,9 +55,11 @@ int main(void) {
     int opcao;
 
     exibirTelaLoading();
+    exibirTelaBoasVindas();
     exibirTelaInicial();
     opcao = lerOpcaoTema();
 
+    /* Cada tema atualiza o placar original por meio dos enderecos das variaveis. */
     if (opcao == 1) {
         executarTema1(&acertos, &erros);
     } else {

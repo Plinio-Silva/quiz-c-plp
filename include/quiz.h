@@ -40,6 +40,7 @@ void definirCor(int corTexto, int corFundo);
 int obterLarguraConsole(void);
 void centralizarTexto(const char *texto, int linha);
 void exibirTelaLoading(void);
+void exibirTelaBoasVindas(void);
 void exibirTelaInicial(void);
 void piscarTela(int corFundo, const char *mensagem, int vezes);
 

@@ -33,6 +33,7 @@ Espaço para registrar ideias, decisões, testes, problemas encontrados e soluç
 
 - **21/09/2026 — Correção de build:** criada task própria do VS Code ([.vscode/tasks.json](../.vscode/tasks.json)) com "Compilar Quiz" e "Rodar Quiz", que sempre compilam todos os arquivos do projeto (`src/*.c` + `conio.c`) e geram `build/quiz.exe`, em vez de depender da task genérica que compila só o arquivo aberto.
 - **21/09/2026 — Reestruturação para 5 arquivos:** unificados todos os headers (`interface.h`, `perguntas.h`, `temporizador.h`, `tema1.h`, `tema2.h`) em um único [include/quiz.h](../include/quiz.h), e unificados `tema1.c` + `tema2.c` em um único [src/perguntas.c](../src/perguntas.c). Estrutura final: `main.c`, `interface.c`, `temporizador.c`, `perguntas.c` + `quiz.h` = 5 arquivos, ficando `conio.c`/`conio.h` fora da contagem por serem a biblioteca externa exigida pelo enunciado. Makefile, tasks.json e README.md atualizados para refletir a nova estrutura. Recompilado e validado sem erros/warnings após a mudança.
+- **25/09/2026 — Tela de início e borda:** adicionada uma tela de boas-vindas com o botão simulado `[ INICIAR QUIZ ]`; ao pressionar Enter, o programa segue para o menu de escolha do tema. A tela de boas-vindas e o menu receberam uma moldura para destacar a interface. **Teste:** tarefa "Compilar Quiz" executada com `gcc -Wall`, concluída sem erros ou warnings.
 
 ---
 
